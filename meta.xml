@@ -1,0 +1,8 @@
+<meta>
+    <script src="locale.lua" type="server"/>
+    <script src="locales/en.lua" type="server"/>
+
+    <script src="config.lua" type="server"/>
+    <script src="util.lua" type="server"/>
+    <script src="server.lua" type="server"/>
+</meta>
