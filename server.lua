@@ -193,7 +193,7 @@ addEventHandler(
                     if v[4] == "client" then
                         sync = "subscribe"
                     end
-                    setElementData(player, i, data[i] or v[3], sync or false)
+                    setElementData(player, i, data[i] or v[2], sync or false)
                     if v[4] == "client" then
                         addElementDataSubscriber(player, i, player)
                     end
