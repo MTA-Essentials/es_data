@@ -1,4 +1,4 @@
-keys = getElementData(root, 'es-data-keys') or {} -- key, type, default, sync (broadcast, local, subscribe)
+keys = getElementData(root, 'es-data-keys') or {} -- key, type, default, sync (broadcast, local, subscribe/client)
 loading = {}
 
 driver = config.database.driver
@@ -189,7 +189,14 @@ addEventHandler(
 
                 for i, v in pairs(keys) do
                     -- iprint(player, i, data[i] or v[3], v[4] or false)
-                    setElementData(player, i, data[i] or v[3], v[4] or false)
+                    local sync = v[4]
+                    if v[4] == "client" then
+                        sync = "subscribe"
+                    end
+                    setElementData(player, i, data[i] or v[3], sync or false)
+                    if v[4] == "client" then
+                        addElementDataSubscriber(player, i, player)
+                    end
                 end
 
                 loading[player] = nil
