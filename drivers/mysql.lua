@@ -136,8 +136,7 @@ db.get = function(co, uid, key)
         end,
         {},
         connection,
-        'SELECT ? FROM userdata WHERE user_id = ?',
-        key,
+        'SELECT ' .. key .. ' FROM userdata WHERE user_id = ?',
         uid
     )
 
