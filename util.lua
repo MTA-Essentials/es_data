@@ -22,3 +22,21 @@ function findPlayer(partial)
         end
     end
 end
+
+function log(str)
+    if config.debug >= 3 then
+        return outputDebugString(str, 3)
+    end
+end
+
+function warning(str)
+    if config.debug >= 2 then
+        return outputDebugString(str, 2)
+    end
+end
+
+function error(str)
+    if config.debug >= 1 then
+        return outputDebugString(str, 3)
+    end
+end
