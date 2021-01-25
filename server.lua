@@ -190,16 +190,18 @@ addEventHandler(
                 for i, v in pairs(keys) do
                     -- iprint(player, i, data[i] or v[3], v[4] or false)
                     local sync = v[4]
-                    if v[4] == "client" then
-                        sync = "subscribe"
+                    if v[4] == 'client' then
+                        sync = 'subscribe'
                     end
                     setElementData(player, i, data[i] or v[2], sync or false)
-                    if v[4] == "client" then
+                    if v[4] == 'client' then
                         addElementDataSubscriber(player, i, player)
                     end
                 end
 
                 loading[player] = nil
+
+                triggerEvent('onPlayerLoaded', resourceRoot, player)
             end
         )
         coroutine.resume(co)
