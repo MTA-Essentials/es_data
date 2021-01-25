@@ -145,6 +145,6 @@ db.get = function(co, uid, key)
     return res
 end
 
-db.types = {string = 'varchar(255)', table = 'longtext', int = 'int', float = 'float', bool = 'tinyint'}
+db.types = {string = 'varchar(255)', json = 'longtext', int = 'int', float = 'float', bool = 'tinyint'}
 
 drivers.mysql = db
